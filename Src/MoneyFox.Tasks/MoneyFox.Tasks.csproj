@@ -108,6 +108,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackupBackgroundTask.cs" />
     <Compile Include="ClearPaymentBackgroundTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

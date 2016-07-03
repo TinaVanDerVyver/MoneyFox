@@ -7,21 +7,22 @@ using MoneyFox.Shared.Interfaces;
 
 namespace MoneyFox.Windows.Services {
     public class BackgroundTaskService : IBackgroundTaskService {
-        private Dictionary<string, string> Tasks => new Dictionary<string, string> {
-            {"ClearPaymentBackgroundTask", "MoneyFox.Tasks"}
+        private Dictionary<string, string> TimeTriggeredTasks => new Dictionary<string, string> {
+            {"ClearPaymentBackgroundTask", "MoneyFox.TimeTriggeredTasks"},
+            {"BackupBackgroundTask", "MoneyFox.TimeTriggeredTasks"}
         };
 
         public async Task RegisterTasksAsync() {
-            foreach (var kvTask in Tasks) {
+            foreach (var kvTask in TimeTriggeredTasks) {
                 if (BackgroundTaskRegistration.AllTasks.Any(task => task.Value.Name == kvTask.Key)) {
-                    break;
+                    continue;
                 }
 
-                await RegisterTaskAsync(kvTask.Key, kvTask.Value);
+                await RegisterTimeTriggeredTaskAsync(kvTask.Key, kvTask.Value);
             }
         }
 
-        private async Task RegisterTaskAsync(string taskName, string taskNamespace) {
+        private async Task RegisterTimeTriggeredTaskAsync(string taskName, string taskNamespace) {
             var requestAccess = await BackgroundExecutionManager.RequestAccessAsync();
 
             if (requestAccess == BackgroundAccessStatus.AllowedWithAlwaysOnRealTimeConnectivity ||
