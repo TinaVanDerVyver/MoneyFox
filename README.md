@@ -12,11 +12,15 @@ There are two versions in the stores available for all devices with Windows 10 o
 
 First there is a stable version who get regular udpates as soon as they are fully tested:
 
+**Stable**
+
 [Windows](https://www.microsoft.com/store/apps/9nblggh6ck9d)
 
 [Android](https://play.google.com/store/apps/details?id=com.applysolutions.moneyfox)
 
 Second there is a beta for all these guys who want get their hands on all the new features who are currently in development. We try to keep this as stable as possible. But nonethless expect some bugs (please report! =) ):
+
+**Beta**
 
 [Windows](https://www.microsoft.com/store/apps/9nblggh68h8m)
 
